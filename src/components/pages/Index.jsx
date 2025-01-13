@@ -2,8 +2,8 @@ import PulsatingHeart from '../ui/PulsatingHeart'
 import Tooltip from '../ui/Tooltip'
 import Button from '../ui/Button'
 
+//Index Landing Page
 function Index() {
-
     return(
         <>
         <div className='min-h-screen flex flex-col justify-center items-center'>
@@ -18,11 +18,7 @@ function Index() {
             <Tooltip/>
             </div>
         </div>
-        
-        
-        
         </>
-
     )
 }
 
