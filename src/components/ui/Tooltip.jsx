@@ -2,10 +2,28 @@ import React, { useState, useEffect } from 'react';
 
 const Tooltip = () => {
     const [showTooltip, setShowTooltip] = useState(false);
-  
+
+    const animation = () => {
+      return new Promise((resolve) => {
+        setShowTooltip(true);
+          setTimeout(() => {
+            setShowTooltip(false);
+            resolve(); // Resolve the promise once the function is done
+          }, 4000); // Simulate async work (1 second delay)
+      });
+    };
+
+    const interval = () => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(); // Resolve the promise once the function is done
+        }, 4000); // Simulate async work (1.5 second delay)
+      });
+    };
+    
     useEffect(() => {
       // Function to show the tooltip at random intervals
-      const interval = setInterval(() => {
+      /*const interval = setInterval(() => {
         setShowTooltip(true);
   
         // Hide tooltip after 1 second
@@ -16,7 +34,17 @@ const Tooltip = () => {
       }, Math.floor(Math.random() * (9000 - 8000 + 1)) + 8000); // Random interval between 3 and 5 seconds
   
       // Clean up interval when component is unmounted
-      return () => clearInterval(interval);
+      return () => clearInterval(interval);*/
+      const executeLoop = async () => {
+        while (true) {
+          // Wait for function1 to finish before calling function2
+          await animation();
+          
+          // Wait for function2 to finish before going back to function1
+          await interval();
+        }
+      };
+      executeLoop();
     }, []);
   
     return (
