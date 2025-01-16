@@ -24,7 +24,7 @@ const Tooltip = () => {
         {/* Tooltip */}
         {showTooltip && (
             <div className="absolute animate-pulse-in transform -translate-x-1/2 px-4 py-2 bg-gray-700 text-white text-sm rounded-md shadow-lg">
-                You make my heart beat faster... 
+                There's something I need to ask you 
             </div>
         )}
         </>
